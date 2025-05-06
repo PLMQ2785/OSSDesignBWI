@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using LibVLCSharp.Shared;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,6 +10,13 @@ namespace openMediaPlayer
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            //LibVLC Init
+            Core.Initialize();
+        }
     }
 
 }
