@@ -33,7 +33,7 @@
                         PreviewMouseLeftButtonUp="PositionSlider_PreviewMouseLeftButtonUp"
                         ValueChanged="PositionSlider_ValueChanged" IsEnabled="False"/>
                 <TextBlock x:Name="TotalDurationLabel" Grid.Column="2" Text="00:00" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                
+
 
             </Grid>
 
@@ -58,6 +58,8 @@
                     <Button Content="정지" Click="StopButton_Click" Padding="10,5"/>
                 </StackPanel>
 
+                <Button Grid.Column="2" x:Name="GenerateSubtitlesButton" Content="자막 생성" Click="GenerateSubtitlesButton_Click" Padding="10,5" VerticalAlignment="Center" IsEnabled="False"/>
+                
             </Grid>
 
 

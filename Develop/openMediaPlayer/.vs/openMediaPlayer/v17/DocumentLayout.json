@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|g:\\lecture\\yu\\3g\\1\\ossd\\project\\develop\\openmediaplayer\\openmediaplayer\\openmediaplayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\openmediaplayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|g:\\lecture\\yu\\3g\\1\\ossd\\project\\develop\\openmediaplayer\\openmediaplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "openMediaPlayer",
+              "DocumentMoniker": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\openMediaPlayer.csproj",
+              "RelativeDocumentMoniker": "openMediaPlayer\\openMediaPlayer.csproj",
+              "ToolTip": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\openMediaPlayer.csproj",
+              "RelativeToolTip": "openMediaPlayer\\openMediaPlayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-11T20:25:00.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\App.xaml.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\App.xaml.cs",
@@ -38,12 +55,11 @@
               "RelativeToolTip": "openMediaPlayer\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T08:42:22.523Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T08:42:22.523Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "App.xaml",
               "DocumentMoniker": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\App.xaml",
               "RelativeDocumentMoniker": "openMediaPlayer\\App.xaml",
@@ -55,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "openMediaPlayer\\MainWindow.xaml",
@@ -67,13 +83,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\MainWindow.xaml.cs",
               "ToolTip": "G:\\Lecture\\YU\\3G\\1\\OSSD\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainWindow.xaml.cs",
               "RelativeToolTip": "openMediaPlayer\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACQAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAANwAAAAAAAAAAAAWwPYAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-03T12:24:04.856Z",
               "EditorCaption": ""
