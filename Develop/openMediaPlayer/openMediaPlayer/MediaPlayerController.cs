@@ -25,6 +25,7 @@ namespace openMediaPlayer.Services
         public event EventHandler? TimeChanged;
         public event EventHandler? LengthChanged;
         public event EventHandler<string>? ErrorOccurred;
+        public event EventHandler? EndReached; //재생 종료시
 
         //기본 재생 상태
         private PlaybackState _currentState = PlaybackState.Stopped;
@@ -77,6 +78,11 @@ namespace openMediaPlayer.Services
             };
             MediaPlayer.PositionChanged += (s, e) => TimeChanged?.Invoke(this, EventArgs.Empty);
             MediaPlayer.LengthChanged += (s, e) => LengthChanged?.Invoke(this, EventArgs.Empty);
+            MediaPlayer.EndReached += (s, e) =>
+            {
+                CurrentState = PlaybackState.Stopped; // 상태를 Stopped로 변경
+                EndReached?.Invoke(this, EventArgs.Empty); // EndReached 이벤트 발생
+            };
         }
 
         public bool OpenMedia(string filePath)

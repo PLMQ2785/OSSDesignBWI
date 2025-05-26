@@ -8,22 +8,98 @@
         mc:Ignorable="d"
         Title="Open Media Player" Height="720" Width="1280">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
 
-        <vlc:VideoView x:Name="videoView" Grid.Row="0"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" MinWidth="150" MaxWidth="400" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="5">
+                <Label Content="Playlist" FontWeight="Bold" HorizontalAlignment="Center" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                    <Button Content="Add Files" Command="{Binding AddFilesToPlaylistCommand}"
+                        Margin="2" />
+                    <Button Content="Remove" Command="{Binding RemoveSelectedCommand}" Margin="2" />
+                    <Button Content="Clear" Command="{Binding ClearPlaylistCommand}" Margin="2" />
+                </StackPanel>
+            </StackPanel>
+
+            <ListView Grid.Row="1"
+                ItemsSource="{Binding PlaylistItems}"
+                SelectedItem="{Binding SelectedPlaylistItem}"
+                SelectionMode="Single"
+                Margin="5,0,5,5">
+
+                <ListView.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick"
+                        Command="{Binding PlaySelectedCommand}" />
+                </ListView.InputBindings>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsPlaying}" Value="True">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="Background" Value="LightBlue"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Track" DisplayMemberBinding="{Binding DisplayName}"
+                            Width="220" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"
+                Margin="5">
+                <Button Content="Prev" Command="{Binding PreviousTrackCommand}" Margin="5" />
+                <Button Content="Next" Command="{Binding NextTrackCommand}" Margin="5" />
+            </StackPanel>
+        </Grid>
 
 
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10">
 
-            <Grid Margin="0,0,0,5">
+
+
+
+        <GridSplitter Grid.Column="1"
+            Width="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            Background="LightGray"
+            ShowsPreview="True" />
+
+        <Grid Grid.Column="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <vlc:VideoView x:Name="videoView" Grid.Row="0" Background="Black"/>
+
+
+            <Grid Grid.Row="1" Margin="5,0,5,5">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="CurrentTimeLabel" Grid.Column="0" Text="{Binding CurrentTimeText}" VerticalAlignment="Center" Margin="0,0,5,0"/>
@@ -39,34 +115,38 @@
                         PreviewMouseLeftButtonUp="PositionSlider_PreviewMouseLeftButtonUp"
                         IsEnabled="{Binding IsMediaLoaded}"/>
                 <TextBlock x:Name="TotalDurationLabel" Grid.Column="2" Text="{Binding TotalDurationText}" VerticalAlignment="Center" Margin="0,0,5,0"/>
-
-
             </Grid>
 
-            <Grid>
+
+            <Grid Grid.Row="2" Margin="5">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Content="파일 열기" Padding="10,5" VerticalAlignment="Center" Command="{Binding OpenCommand}"/>
 
-                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="10,0" HorizontalAlignment="Center">
 
                     <Button Content="재생" Padding="10,5" Margin="5,0,5,0" Command="{Binding PlayCommand}"/>
                     <Button Content="일시정지" Padding="10,5" Margin="0,0,5,0" Command="{Binding PauseCommand}"/>
                     <Button Content="정지" Padding="10,5" Command="{Binding StopCommand}"/>
+
                 </StackPanel>
 
                 <Button Grid.Column="2" x:Name="GenerateSubtitlesButton" Content="자막 생성" Padding="10,5" VerticalAlignment="Center" IsEnabled="{Binding CanGenerateSubtitles}" Command="{Binding GenerateSubtitlesCommand}"/>
 
             </Grid>
 
+            <StatusBar Grid.Row="3">
+                <StatusBarItem>
+                    <TextBlock Text="{Binding StatusMessage}" />
+                </StatusBarItem>
+            </StatusBar>
 
-        </StackPanel>
+        </Grid>
     </Grid>
 
 </Window>

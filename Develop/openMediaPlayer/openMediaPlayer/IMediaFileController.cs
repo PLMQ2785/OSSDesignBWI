@@ -9,5 +9,6 @@ namespace openMediaPlayer.Services.Interfaces
     public interface IMediaFileController
     {
         string? SelectMediaFile();
+        IEnumerable<string>? SelectMediaFiles(); // 여러 파일 선택 메서드
     }
 }

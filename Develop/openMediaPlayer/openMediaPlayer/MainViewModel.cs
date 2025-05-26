@@ -1,8 +1,10 @@
 ﻿using LibVLCSharp.Shared;
 using openMediaPlayer.Models;
+using openMediaPlayer.Services;
 using openMediaPlayer.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,7 @@ namespace openMediaPlayer.ViewModels
         private readonly ITimeFormatter _timeFormatter;
         private readonly IDispatcherController _dispatcherController;
         private readonly IPreferencesController _preferencesController;
+        private readonly IPlaylistController _playlistController;
 
         private string? _currentMediaFilePathVM;
         private bool _IsUserDraggingSlider = false;
@@ -115,15 +118,47 @@ namespace openMediaPlayer.ViewModels
             }
         }
 
+        // 재생 목록 관련 속성들...
+        private ObservableCollection<MediaItem> _playlistItems = new ObservableCollection<MediaItem>();
+        public ObservableCollection<MediaItem> PlaylistItems
+        {
+            get => _playlistItems;
+            set => SetProperty(ref _playlistItems, value);
+        }
+
+        private MediaItem? _selectedPlaylistItem;
+        public MediaItem? SelectedPlaylistItem
+        {
+            get => _selectedPlaylistItem;
+            set => SetProperty(ref _selectedPlaylistItem, value);
+        }
+
+        private MediaItem? _currentPlaylistItem;
+        public MediaItem? CurrentPlaylistItem
+        {
+            get => _currentPlaylistItem;
+            set => SetProperty(ref _currentPlaylistItem, value);
+        }
+
+
         public RelayCommandController OpenCommand { get; }
         public RelayCommandController PlayCommand { get; }
         public RelayCommandController PauseCommand { get; }
         public RelayCommandController StopCommand { get; }
         public RelayCommandController GenerateSubtitlesCommand { get; }
 
+        // 재생 목록 관련 명령들...
+        public RelayCommandController AddFilesToPlaylistCommand { get; }
+        public RelayCommandController PlaySelectedCommand { get; }
+        public RelayCommandController RemoveSelectedCommand { get; }
+        public RelayCommandController ClearPlaylistCommand { get; }
+        public RelayCommandController NextTrackCommand { get; }
+        public RelayCommandController PreviousTrackCommand { get; }
+
+
         public MainViewModel(IMediaPlayerController mediaPlayerController, IMediaFileController mediaFileController,
                              ISubtitleController subtitleController, ITimeFormatter timeFormatter, IDispatcherController dispatcherController,
-                             IPreferencesController preferencesController)
+                             IPreferencesController preferencesController, IPlaylistController playlistController)
         {
             _mediaPlayerController = mediaPlayerController ?? throw new ArgumentNullException(nameof(mediaPlayerController));
             _mediaFileController = mediaFileController ?? throw new ArgumentNullException(nameof(mediaFileController));
@@ -131,6 +166,8 @@ namespace openMediaPlayer.ViewModels
             _timeFormatter = timeFormatter ?? throw new ArgumentNullException(nameof(timeFormatter));
             _dispatcherController = dispatcherController ?? throw new ArgumentNullException(nameof(dispatcherController));
             _preferencesController = preferencesController ?? throw new ArgumentNullException(nameof(preferencesController));
+            _playlistController = playlistController ?? throw new ArgumentNullException(nameof(playlistController));
+
 
             OpenCommand = new RelayCommandController(async param => await OpenMediaAsync());
             PlayCommand = new RelayCommandController(param => _mediaPlayerController.Play(), param => IsMediaLoaded && !_mediaPlayerController.IsPlaying);
@@ -138,7 +175,17 @@ namespace openMediaPlayer.ViewModels
             StopCommand = new RelayCommandController(param => _mediaPlayerController.Stop(), param => IsMediaLoaded);
             GenerateSubtitlesCommand = new RelayCommandController(async param => await GenerateSubtitlesAsync(), param => CanGenerateSubtitles);
 
+
+            AddFilesToPlaylistCommand = new RelayCommandController(async param => await AddFilesToPlaylistAsync());
+            PlaySelectedCommand = new RelayCommandController(param => PlaySelectedItem(), param => SelectedPlaylistItem != null);
+            RemoveSelectedCommand = new RelayCommandController(param => RemoveSelectedItem(), param => SelectedPlaylistItem != null);
+            ClearPlaylistCommand = new RelayCommandController(param => _playlistController.ClearPlaylist(), param => PlaylistItems.Any());
+            NextTrackCommand = new RelayCommandController(param => _playlistController.NextTrack(), param => PlaylistItems.Any());
+            PreviousTrackCommand = new RelayCommandController(param => _playlistController.PreviousTrack(), param => PlaylistItems.Any());
+
             SubscribeToServiceEvents();
+
+            UpdatePlaylistView();
 
             // 애플리케이션 시작 시 의존성 검사
             if (!_preferencesController.CheckDependencies(out string errorMessage))
@@ -155,24 +202,16 @@ namespace openMediaPlayer.ViewModels
             _mediaPlayerController.TimeChanged += OnMediaPlayerTimeChanged;
             _mediaPlayerController.LengthChanged += OnMediaPlayerLengthChanged;
             _mediaPlayerController.ErrorOccurred += OnMediaPlayerErrorOccurred;
+            _mediaPlayerController.EndReached += OnMediaPlayerEndReached;
 
             _subtitleController.SubtitleGenerationStarted += OnSubtitleGenerationStarted;
             _subtitleController.SubtitleGenerationCompleted += OnSubtitleGenerationCompleted;
+
+            _playlistController.PlaylistUpdated += OnPlaylistUpdated;
+            _playlistController.CurrentTrackChanged += OnCurrentTrackChanged;
         }
 
-        private async Task OpenMediaAsync()
-        {
-            var filePath = _mediaFileController.SelectMediaFile();
-            if (!string.IsNullOrEmpty(filePath))
-            {
-                StatusMessage = "파일 여는 중...";
-                IsMediaLoaded = false; // 로딩 중으로 표시
-                UpdateCommandCanExecute();
 
-                bool opened = _mediaPlayerController.OpenMedia(filePath);
-                // 실제 상태 업데이트는 OnMediaPlayerMediaOpened 이벤트 핸들러에서 처리
-            }
-        }
 
         private async Task GenerateSubtitlesAsync()
         {
@@ -314,7 +353,141 @@ namespace openMediaPlayer.ViewModels
                 PauseCommand.RaiseCanExecuteChanged();
                 StopCommand.RaiseCanExecuteChanged();
                 GenerateSubtitlesCommand.RaiseCanExecuteChanged();
+
+                AddFilesToPlaylistCommand.RaiseCanExecuteChanged();
+                PlaySelectedCommand.RaiseCanExecuteChanged();
+                RemoveSelectedCommand.RaiseCanExecuteChanged();
+                ClearPlaylistCommand.RaiseCanExecuteChanged();
+                NextTrackCommand.RaiseCanExecuteChanged();
+                PreviousTrackCommand.RaiseCanExecuteChanged();
             });
         }
+
+        private void OnMediaPlayerEndReached(object? sender, EventArgs e)
+        {
+            // PlaylistController가 이미 EndReached를 처리하므로,
+            // MainViewModel에서는 UI 업데이트 등 추가 작업이 필요하면 여기에 작성합니다.
+            // 여기서는 PlaylistController가 다음 트랙을 재생하도록 둡니다.
+        }
+
+        private void OnPlaylistUpdated(object? sender, EventArgs e)
+        {
+            _dispatcherController.Invoke(UpdatePlaylistView);
+        }
+
+        private void OnCurrentTrackChanged(object? sender, MediaItem? currentItem)
+        {
+            _dispatcherController.Invoke(() =>
+            {
+                CurrentPlaylistItem = currentItem;
+                if (currentItem != null)
+                {
+                    // 현재 재생 중인 미디어가 변경되었으므로,
+                    // 미디어 로드 관련 UI 업데이트 로직을 호출할 수 있습니다.
+                    // (OnMediaPlayerMediaOpened와 유사한 로직 필요 시)
+                    IsMediaLoaded = true;
+                    WindowTitle = Path.GetFileName(currentItem.FilePath);
+                    StatusMessage = "재생 중";
+                }
+                else if (_mediaPlayerController.CurrentState == PlaybackState.Stopped)
+                {
+                    IsMediaLoaded = false;
+                    WindowTitle = "Open Media Player";
+                    StatusMessage = "정지됨";
+                }
+
+                var previousTrack = PlaylistItems.FirstOrDefault(item => item.IsPlaying);
+                if (previousTrack != null)
+                {
+                    previousTrack.IsPlaying = false;
+                }
+
+                // 새 트랙의 IsPlaying = true
+                if (currentItem != null)
+                {
+                    var currentVmItem = PlaylistItems.FirstOrDefault(item => item.Equals(currentItem));
+                    if (currentVmItem != null)
+                    {
+                        currentVmItem.IsPlaying = true;
+                    }
+                }
+                CurrentPlaylistItem = currentItem; // ViewModel의 CurrentPlaylistItem도 업데이트
+
+
+                UpdateCommandCanExecute();
+            });
+        }
+
+
+        private void UpdatePlaylistView()
+        {
+            PlaylistItems.Clear();
+            foreach (var item in _playlistController.CurrentPlaylist)
+            {
+                PlaylistItems.Add(item);
+            }
+            UpdateCommandCanExecute(); // 재생 목록 변경 시 명령 상태 업데이트
+        }
+
+
+        //private async Task OpenMediaAsync()
+        //{
+        //    var filePath = _mediaFileController.SelectMediaFile();
+        //    if (!string.IsNullOrEmpty(filePath))
+        //    {
+        //        StatusMessage = "파일 여는 중...";
+        //        IsMediaLoaded = false; // 로딩 중으로 표시
+        //        UpdateCommandCanExecute();
+
+        //        bool opened = _mediaPlayerController.OpenMedia(filePath);
+        //        // 실제 상태 업데이트는 OnMediaPlayerMediaOpened 이벤트 핸들러에서 처리
+        //    }
+        //}
+
+        private async Task OpenMediaAsync()
+        {
+            var filePath = _mediaFileController.SelectMediaFile();
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                StatusMessage = "파일 여는 중...";
+                IsMediaLoaded = false;
+                UpdateCommandCanExecute();
+
+                // 파일을 열 때, 기존 재생 목록을 지우고 새로 추가 후 재생
+                _playlistController.ClearPlaylist();
+                _playlistController.AddMedia(filePath);
+                var firstItem = _playlistController.CurrentPlaylist.FirstOrDefault();
+                if (firstItem != null)
+                {
+                    _playlistController.PlayTrack(firstItem);
+                }
+            }
+        }
+
+        private async Task AddFilesToPlaylistAsync()
+        {
+            var filePaths = _mediaFileController.SelectMediaFiles();
+            if (filePaths != null && filePaths.Any())
+            {
+                _playlistController.AddMultipleMedia(filePaths);
+            }
+        }
+
+        private void PlaySelectedItem()
+        {
+            if (SelectedPlaylistItem != null)
+            {
+                _playlistController.PlayTrack(SelectedPlaylistItem);
+            }
+        }
+
+        private void RemoveSelectedItem()
+        {
+            if (SelectedPlaylistItem != null)
+            {
+                _playlistController.RemoveMedia(SelectedPlaylistItem);
+            }
+        }
+
     }
 }

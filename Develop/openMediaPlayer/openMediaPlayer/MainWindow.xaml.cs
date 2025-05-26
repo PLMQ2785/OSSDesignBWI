@@ -387,6 +387,8 @@ namespace openMediaPlayer
             IMediaFileController mediaFileService = new MediaFileController();
             ISubtitleController subtitleService = new SubtitleController(audioExtractor, subtitleGenerator, _mediaPlayerController, configService);
 
+            IPlaylistController playlistService = new PlaylistController(_mediaPlayerController); // PlaylistController 생성 및 주입
+
             // 뷰모델 인스턴스 생성 및 DataContext 설정
             _viewModel = new MainViewModel(
                 _mediaPlayerController,
@@ -394,7 +396,8 @@ namespace openMediaPlayer
                 subtitleService,
                 timeFormatter,
                 dispatcherService,
-                configService);
+                configService,
+                playlistService);
             DataContext = _viewModel;
 
             // VideoView에 MediaPlayer 할당
