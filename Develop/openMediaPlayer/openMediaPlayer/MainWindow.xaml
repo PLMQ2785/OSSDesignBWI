@@ -27,12 +27,12 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Margin="5">
-                <Label Content="Playlist" FontWeight="Bold" HorizontalAlignment="Center" />
+                <Label Content="재생목록" FontWeight="Bold" HorizontalAlignment="Center" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
-                    <Button Content="Add Files" Command="{Binding AddFilesToPlaylistCommand}"
+                    <Button Content="파일추가" Command="{Binding AddFilesToPlaylistCommand}"
                         Margin="2" />
-                    <Button Content="Remove" Command="{Binding RemoveSelectedCommand}" Margin="2" />
-                    <Button Content="Clear" Command="{Binding ClearPlaylistCommand}" Margin="2" />
+                    <Button Content="제거" Command="{Binding RemoveSelectedCommand}" Margin="2" />
+                    <Button Content="초기화" Command="{Binding ClearPlaylistCommand}" Margin="2" />
                 </StackPanel>
             </StackPanel>
 
@@ -69,11 +69,11 @@
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"
                 Margin="5">
-                <Button Content="Prev" Command="{Binding PreviousTrackCommand}" Margin="5" />
-                <Button Content="Next" Command="{Binding NextTrackCommand}" Margin="5" />
+                <Button Content="이전" Command="{Binding PreviousTrackCommand}" Margin="5" />
+                <Button Content="다음" Command="{Binding NextTrackCommand}" Margin="5" />
             </StackPanel>
 
-            <GroupBox Grid.Row="3" Header="Live Support" Margin="5">
+            <GroupBox Grid.Row="3" Header="실시간 지원" Margin="5">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -88,7 +88,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBox Grid.Column="0" Text="{Binding LlmInputText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" IsEnabled="{Binding IsLlmInputEnabled}"/>
-                        <Button Grid.Column="1" Content="Send" Command="{Binding SubmitLlmCommand}" Margin="5,0,0,0" IsEnabled="{Binding IsLlmInputEnabled}"/>
+                        <Button Grid.Column="1" Content="보내기" Command="{Binding SubmitLlmCommand}" Margin="5,0,0,0" IsEnabled="{Binding IsLlmInputEnabled}"/>
                     </Grid>
                 </Grid>
             </GroupBox>

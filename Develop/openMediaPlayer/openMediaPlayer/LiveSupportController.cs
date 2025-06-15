@@ -172,7 +172,7 @@ namespace openMediaPlayer.Services
 
                     Your response MUST be only the JSON object and nothing else.
                     The JSON object must have an "action" field and a "parameters" field.
-                    You MUST choose a value for the "command_name" field from this exact list: "play", "pause", "stop", "next_track", "previous_track", "generate_subtitles", "preferences".
+                    You MUST choose a value for the "command_name" field from this exact list: "play", "pause", "stop", "next_track", "previous_track", "generate_subtitles".
                     You MUST respond like this format -> {"action": "command_name", "parameters": {"key":"value"}}
                     If the request is unclear or cannot be mapped to a command from the list, use the "unknown" action.
 
