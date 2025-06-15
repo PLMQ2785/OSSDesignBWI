@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\playbacksettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\playbacksettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\generalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\generalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\iplayeractionregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\iplayeractionregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\openmediaplayer.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\openmediaplayer.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,10 +51,6 @@
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\mediaplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\iplaylistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\iplaylistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,16 +59,8 @@
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\imediaplayercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\ilivesupportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\ilivesupportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\iplayeractionregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\iplayeractionregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\playeractionregistry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -69,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\settingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\settingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\subtitlesettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -115,20 +127,12 @@
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\generalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\generalsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\isettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\isettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\playbacksettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|solutionrelative:openmediaplayer\\playbacksettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC27AFC4-64B9-496F-BC29-44A1F3BE1909}|openMediaPlayer\\openMediaPlayer.csproj|i:\\yu\\1\\project\\develop\\openmediaplayer\\openmediaplayer\\mediafilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -197,48 +201,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PlayerActionRegistry.cs",
-              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlayerActionRegistry.cs",
-              "RelativeDocumentMoniker": "openMediaPlayer\\PlayerActionRegistry.cs",
-              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlayerActionRegistry.cs",
-              "RelativeToolTip": "openMediaPlayer\\PlayerActionRegistry.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAhwCUAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "PlaybackSettings.cs",
+              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaybackSettings.cs",
+              "RelativeDocumentMoniker": "openMediaPlayer\\PlaybackSettings.cs",
+              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaybackSettings.cs",
+              "RelativeToolTip": "openMediaPlayer\\PlaybackSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T07:54:57.387Z"
+              "WhenOpened": "2025-06-15T18:18:50.649Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
+              "Title": "openMediaPlayer",
+              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\openMediaPlayer.csproj",
+              "RelativeDocumentMoniker": "openMediaPlayer\\openMediaPlayer.csproj",
+              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\openMediaPlayer.csproj",
+              "RelativeToolTip": "openMediaPlayer\\openMediaPlayer.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-15T18:09:32.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\MainWindow.xaml.cs",
               "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainWindow.xaml.cs",
               "RelativeToolTip": "openMediaPlayer\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAADwvz8AAACQAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAADwvzsAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:04:58.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:04:58.341Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ILiveSupportController.cs",
-              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ILiveSupportController.cs",
-              "RelativeDocumentMoniker": "openMediaPlayer\\ILiveSupportController.cs",
-              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ILiveSupportController.cs",
-              "RelativeToolTip": "openMediaPlayer\\ILiveSupportController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T08:17:21.106Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
               "Title": "IPlayerActionRegistry.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IPlayerActionRegistry.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IPlayerActionRegistry.cs",
@@ -250,19 +253,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "SettingsWindow.xaml",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SettingsWindow.xaml",
               "RelativeDocumentMoniker": "openMediaPlayer\\SettingsWindow.xaml",
               "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SettingsWindow.xaml",
               "RelativeToolTip": "openMediaPlayer\\SettingsWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-14T17:11:28.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T17:11:28.409Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "IMediaPlayerController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IMediaPlayerController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IMediaPlayerController.cs",
@@ -270,8 +272,7 @@
               "RelativeToolTip": "openMediaPlayer\\IMediaPlayerController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAkwBsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T17:42:32.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T17:42:32.323Z"
             },
             {
               "$type": "Document",
@@ -282,12 +283,11 @@
               "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainWindow.xaml",
               "RelativeToolTip": "openMediaPlayer\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-03T12:24:06.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T12:24:06.667Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "MediaPlayerController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MediaPlayerController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\MediaPlayerController.cs",
@@ -295,25 +295,23 @@
               "RelativeToolTip": "openMediaPlayer\\MediaPlayerController.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAApwBMAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T17:47:19.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T17:47:19.373Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "PlaylistController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaylistController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\PlaylistController.cs",
               "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaylistController.cs",
               "RelativeToolTip": "openMediaPlayer\\PlaylistController.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAqwL4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAA4wIUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T17:36:39.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-26T17:36:39.268Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "LiveSupportController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\LiveSupportController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\LiveSupportController.cs",
@@ -321,12 +319,11 @@
               "RelativeToolTip": "openMediaPlayer\\LiveSupportController.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwK8AAAByAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T08:18:07.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T08:18:07.565Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MainViewModel.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\MainViewModel.cs",
@@ -334,12 +331,60 @@
               "RelativeToolTip": "openMediaPlayer\\MainViewModel.cs",
               "ViewState": "AgIAALUBAAAAAAAAAAAtwMUBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T18:38:07.692Z",
+              "WhenOpened": "2025-05-13T18:38:07.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\AppSettings.cs",
+              "RelativeDocumentMoniker": "openMediaPlayer\\AppSettings.cs",
+              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\AppSettings.cs",
+              "RelativeToolTip": "openMediaPlayer\\AppSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T16:37:30.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "GeneralSettings.cs",
+              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\GeneralSettings.cs",
+              "RelativeDocumentMoniker": "openMediaPlayer\\GeneralSettings.cs",
+              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\GeneralSettings.cs",
+              "RelativeToolTip": "openMediaPlayer\\GeneralSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T16:37:56.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ILiveSupportController.cs",
+              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ILiveSupportController.cs",
+              "RelativeDocumentMoniker": "openMediaPlayer\\ILiveSupportController.cs",
+              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ILiveSupportController.cs",
+              "RelativeToolTip": "openMediaPlayer\\ILiveSupportController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T08:17:21.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PlayerActionRegistry.cs",
+              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlayerActionRegistry.cs",
+              "RelativeDocumentMoniker": "openMediaPlayer\\PlayerActionRegistry.cs",
+              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlayerActionRegistry.cs",
+              "RelativeToolTip": "openMediaPlayer\\PlayerActionRegistry.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAhwCUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:54:57.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "IPlaylistController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IPlaylistController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IPlaylistController.cs",
@@ -347,12 +392,11 @@
               "RelativeToolTip": "openMediaPlayer\\IPlaylistController.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAApwC0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T15:12:03.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T15:12:03.177Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "LiveSupportSettings.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\LiveSupportSettings.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\LiveSupportSettings.cs",
@@ -364,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "ISubtitleController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ISubtitleController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ISubtitleController.cs",
@@ -376,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "SubtitleController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SubtitleController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\SubtitleController.cs",
@@ -388,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "SubtitleGenerator.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SubtitleGenerator.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\SubtitleGenerator.cs",
@@ -400,7 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "SubtitleSettings.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SubtitleSettings.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\SubtitleSettings.cs",
@@ -412,19 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AppSettings.cs",
-              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\AppSettings.cs",
-              "RelativeDocumentMoniker": "openMediaPlayer\\AppSettings.cs",
-              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\AppSettings.cs",
-              "RelativeToolTip": "openMediaPlayer\\AppSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T16:37:30.715Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "SettingsViewModel.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SettingsViewModel.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\SettingsViewModel.cs",
@@ -436,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "DispatcherController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\DispatcherController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\DispatcherController.cs",
@@ -448,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "IDispatcherController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IDispatcherController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IDispatcherController.cs",
@@ -460,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "AudioExtractor.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\AudioExtractor.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\AudioExtractor.cs",
@@ -472,7 +504,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "IAudioExtractor.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IAudioExtractor.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IAudioExtractor.cs",
@@ -484,7 +516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "ISubtitleGenerator.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ISubtitleGenerator.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ISubtitleGenerator.cs",
@@ -496,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "IPreferencesController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IPreferencesController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IPreferencesController.cs",
@@ -508,7 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "PreferenceController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PreferenceController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\PreferenceController.cs",
@@ -520,7 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\AssemblyInfo.cs",
@@ -532,7 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "SettingsWindow.xaml.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SettingsWindow.xaml.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\SettingsWindow.xaml.cs",
@@ -544,19 +576,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "GeneralSettings.cs",
-              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\GeneralSettings.cs",
-              "RelativeDocumentMoniker": "openMediaPlayer\\GeneralSettings.cs",
-              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\GeneralSettings.cs",
-              "RelativeToolTip": "openMediaPlayer\\GeneralSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T16:37:56.143Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "ISettingsController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ISettingsController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ISettingsController.cs",
@@ -568,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "SettingsController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\SettingsController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\SettingsController.cs",
@@ -580,19 +600,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "PlaybackSettings.cs",
-              "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaybackSettings.cs",
-              "RelativeDocumentMoniker": "openMediaPlayer\\PlaybackSettings.cs",
-              "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaybackSettings.cs",
-              "RelativeToolTip": "openMediaPlayer\\PlaybackSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T16:38:21.249Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "MediaItem.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\whisper\\MediaItem.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\whisper\\MediaItem.cs",
@@ -604,7 +612,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "IPlaylistController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\whisper\\IPlaylistController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\whisper\\IPlaylistController.cs",
@@ -616,7 +624,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "MediaFileController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\MediaFileController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\MediaFileController.cs",
@@ -628,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\PINEAPPLE\\AppData\\Local\\Temp\\.vsdbgsrc\\a9f5de9bcfa7275e7e930ada29bb344da353f971b5a9bc90dbfe86affd6d9912\\XamlReader.cs",
               "ToolTip": "C:\\Users\\PINEAPPLE\\AppData\\Local\\Temp\\.vsdbgsrc\\a9f5de9bcfa7275e7e930ada29bb344da353f971b5a9bc90dbfe86affd6d9912\\XamlReader.cs [Read Only]",
@@ -638,7 +646,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "IMediaFileController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IMediaFileController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IMediaFileController.cs",
@@ -650,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\App.xaml.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\App.xaml.cs",
@@ -662,7 +670,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "ProcessRunner.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ProcessRunner.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ProcessRunner.cs",
@@ -674,19 +682,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "App.xaml",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\App.xaml",
               "RelativeDocumentMoniker": "openMediaPlayer\\App.xaml",
               "ToolTip": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\App.xaml",
               "RelativeToolTip": "openMediaPlayer\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-06T08:42:17.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T08:42:17.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ViewModelBase.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ViewModelBase.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ViewModelBase.cs",
@@ -698,7 +705,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "RelayCommandController.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\RelayCommandController.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\RelayCommandController.cs",
@@ -710,7 +717,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "IProcessRunner.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\IProcessRunner.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\IProcessRunner.cs",
@@ -722,7 +729,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "ITimeFormatter.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ITimeFormatter.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ITimeFormatter.cs",
@@ -734,7 +741,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "PlaybackState.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\PlaybackState.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\PlaybackState.cs",
@@ -746,7 +753,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "TimeFormatter.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\TimeFormatter.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\TimeFormatter.cs",
@@ -758,7 +765,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "ProcessResult.cs",
               "DocumentMoniker": "I:\\YU\\1\\Project\\Develop\\openMediaPlayer\\openMediaPlayer\\ProcessResult.cs",
               "RelativeDocumentMoniker": "openMediaPlayer\\ProcessResult.cs",

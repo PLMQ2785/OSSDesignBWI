@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="Open Media Player" Height="720" Width="1280"
         Closing="Window_Closing"
-        Topmost="{Binding Settings.Playback.AlwaysOnTop, Mode=OneWay}">
+        Topmost="{Binding Settings.Playback.AlwaysOnTop, Mode=OneWay}"
+        Icon="/OMP.ico">
     <Grid>
 
         <Grid.ColumnDefinitions>

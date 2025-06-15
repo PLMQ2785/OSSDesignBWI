@@ -6,7 +6,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>OMP.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="OMP.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="LibVLCSharp" Version="3.9.3" />
@@ -25,6 +32,9 @@
     </None>
     <None Update="ffmpeg\bin\ffprobe.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="llm_models\model.gguf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="whisper\bench.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using openMediaPlayer.Models;
 
 namespace openMediaPlayer.Models
 {
