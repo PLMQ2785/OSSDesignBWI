@@ -203,4 +203,9 @@
         </Grid>
     </Grid>
 
+    <Window.InputBindings>
+        <KeyBinding Key="Left" Command="{Binding SeekBackwardCommand}" />
+        <KeyBinding Key="Right" Command="{Binding SeekForwardCommand}" />
+    </Window.InputBindings>
+
 </Window>

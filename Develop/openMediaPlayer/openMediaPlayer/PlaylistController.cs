@@ -135,6 +135,20 @@ namespace openMediaPlayer.Services
                     _mediaPlayerController.Play();
                     CurrentTrackChanged?.Invoke(this, item);
 
+                    try
+                    {
+                        // 1. 설정에서 기본 재생 속도 값을 가져오고.
+                        float playbackRate = _settingsController.CurrentSettings.Playback.DefaultPlaybackSpeed;
+
+                        // 2. 플레이어에 해당 속도를 적용.
+                        _mediaPlayerController.PlaybackRate = playbackRate;
+                    }
+                    catch (Exception ex)
+                    {
+                        // 설정 값 오류 등으로 실패할 경우를 대비
+                        System.Diagnostics.Debug.WriteLine($"Failed to set playback rate: {ex.Message}");
+                    }
+
                     //열때 자막생성 추가
                     //설정값 true인지 보고
                     if (_settingsController.CurrentSettings.Subtitles.STT.AutoGenerateOnOpen)

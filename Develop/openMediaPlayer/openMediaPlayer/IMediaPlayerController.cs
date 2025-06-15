@@ -18,6 +18,7 @@ namespace openMediaPlayer.Services.Interfaces
         float Position { get; }
         string? CurrentMediaPath { get; }
         int Volume { get; set; } // 추가
+        float PlaybackRate { get; set; }
 
         event EventHandler<string>? MediaOpened; //미디어 파일 경로 or null 전달
         event EventHandler<PlaybackState>? PlaybackStateChanged; //재생 상태 전달
@@ -32,6 +33,7 @@ namespace openMediaPlayer.Services.Interfaces
         void Stop();
         void Seek(float position);
         bool AddSubtitle(string subtitlePath);
+        void SeekRelative(int seconds);
     }
 
 

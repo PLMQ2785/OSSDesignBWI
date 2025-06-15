@@ -54,6 +54,12 @@ namespace openMediaPlayer.Services
             set => MediaPlayer.Volume = value;
         }
 
+        public float PlaybackRate
+        {
+            get => MediaPlayer.Rate;
+            set => MediaPlayer.SetRate(value); // LibVLC는 SetRate() 메서드를 사용합니다.
+        }
+
         public MediaPlayerController()
         {
             try
@@ -193,6 +199,21 @@ namespace openMediaPlayer.Services
             _currentMediaVLC?.Dispose();
             _libVLCEngine?.Dispose();
             GC.SuppressFinalize(this);
+        }
+
+        public void SeekRelative(int seconds)
+        {
+            // 탐색이 불가능한 미디어이거나, 미디어가 없으면 아무것도 하지 않음
+            if (!MediaPlayer.IsSeekable || MediaPlayer.Media == null) return;
+
+            // 현재 시간(밀리초)에 원하는 시간(초 * 1000)을 더함
+            long newTime = MediaPlayer.Time + (seconds * 1000);
+
+            // 계산된 시간이 0보다 작거나 전체 길이보다 크지 않도록 범위를 제한
+            newTime = Math.Clamp(newTime, 0, MediaPlayer.Length);
+
+            // 최종 계산된 시간으로 이동
+            MediaPlayer.Time = newTime;
         }
     }
 }

@@ -214,6 +214,8 @@ namespace openMediaPlayer.ViewModels
         public RelayCommandController MuteCommand { get; }
         public RelayCommandController VolumeUpCommand { get; } // 볼륨 증가
         public RelayCommandController VolumeDownCommand { get; } // 볼륨 감소
+        public RelayCommandController SeekForwardCommand { get; }
+        public RelayCommandController SeekBackwardCommand { get; }
 
 
         public MainViewModel(IMediaPlayerController mediaPlayerController, IMediaFileController mediaFileController, ISubtitleController subtitleController,
@@ -242,6 +244,7 @@ namespace openMediaPlayer.ViewModels
             VolumeUpCommand = new RelayCommandController(param => Volume = Math.Min(Volume + 5, 100));
             VolumeDownCommand = new RelayCommandController(param => Volume = Math.Max(Volume - 5, 0));
 
+
             //볼륨 설정 외부에서 바뀔일이 있을까 싶긴 한데 일단 혹시몰라서..
             _mediaPlayerController.MediaPlayer.VolumeChanged += (s, e) => OnPropertyChanged(nameof(Volume));
 
@@ -263,6 +266,9 @@ namespace openMediaPlayer.ViewModels
             NextTrackCommand = new RelayCommandController(param => _playlistController.NextTrack(), param => PlaylistItems.Any());
             PreviousTrackCommand = new RelayCommandController(param => _playlistController.PreviousTrack(), param => PlaylistItems.Any());
 
+            var canSeek = new Predicate<object?>(param => IsMediaLoaded && _mediaPlayerController.MediaPlayer.IsSeekable);
+            SeekForwardCommand = new RelayCommandController(param => SeekForward(), canSeek);
+            SeekBackwardCommand = new RelayCommandController(param => SeekBackward(), canSeek);
 
             SubscribeToServiceEvents();
 
@@ -576,7 +582,15 @@ namespace openMediaPlayer.ViewModels
             _dispatcherController.Invoke(() =>
             {
                 _playlistController.IsRepeatEnabled = newSettings.Playback.RepeatPlaylist;
-                // 이 부분은 MainViewModel이 Window 자체를 제어하기 어려우므로 이벤트를 통해 MainWindow.xaml.cs에서 처리하는 것이 좋음
+
+                OnPropertyChanged(nameof(Settings));
+
+                // 만약 미디어가 현재 재생 중이라면,
+                if (_mediaPlayerController.IsPlaying)
+                {
+                    // 새로 저장된 재생 속도를 즉시 플레이어에 적용합니다.
+                    _mediaPlayerController.PlaybackRate = newSettings.Playback.DefaultPlaybackSpeed;
+                }
             });
         }
 
@@ -623,6 +637,17 @@ namespace openMediaPlayer.ViewModels
                 _lastVolumeBeforeMute = Volume;
                 Volume = 0;
             }
+        }
+        private void SeekForward()
+        {
+            int interval = _settingsController.CurrentSettings.Playback.SeekIntervalSeconds;
+            _mediaPlayerController.SeekRelative(interval);
+        }
+
+        private void SeekBackward()
+        {
+            int interval = _settingsController.CurrentSettings.Playback.SeekIntervalSeconds;
+            _mediaPlayerController.SeekRelative(-interval); // 뒤로 가기는 음수 값 사용
         }
     }
 }
