@@ -10,5 +10,7 @@ namespace openMediaPlayer.Services.Interfaces
     {
         void Invoke(Action action);
         Task InvokeAsync(Action action);
+
+        Task<T> InvokeAsync<T>(Func<Task<T>> func); // 추가
     }
 }

@@ -1,4 +1,5 @@
-﻿using openMediaPlayer.Services.Interfaces;
+﻿using openMediaPlayer.Models;
+using openMediaPlayer.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,19 +16,21 @@ namespace openMediaPlayer.Services
         private readonly ISubtitleGenerator _subtitleGenerator;
         private readonly IMediaPlayerController _mediaPlayerController;
         private readonly IPreferencesController _preferencesController;
+        private readonly ISettingsController _settingsController; // 추가
 
         public event EventHandler? SubtitleGenerationStarted;
         public event EventHandler<(bool success, string messageOrPath)>? SubtitleGenerationCompleted;
 
-        public SubtitleController(IAudioExtractor audioExtractor, ISubtitleGenerator subtitleGenerator, IMediaPlayerController mediaPlayerController, IPreferencesController preferencesController)
+        public SubtitleController(IAudioExtractor audioExtractor, ISubtitleGenerator subtitleGenerator, IMediaPlayerController mediaPlayerController, IPreferencesController preferencesController, ISettingsController settingsController)
         {
             _audioExtractor = audioExtractor;
             _subtitleGenerator = subtitleGenerator;
             _mediaPlayerController = mediaPlayerController;
             _preferencesController = preferencesController;
+            _settingsController = settingsController; // 추가
         }
 
-        public async Task GenerateAndLoadSubtitlesAsync(string mediaPath, string? modelName = null)
+        public async Task GenerateAndLoadSubtitlesAsync(string mediaPath, string? modelName = null, string? lang = null)
         {
             SubtitleGenerationStarted?.Invoke(this, EventArgs.Empty);
 
@@ -35,7 +38,8 @@ namespace openMediaPlayer.Services
 
             string tempAudioPath = null;
             //임시 srt 파일 생성, 원본미디어+GUID
-            string srtBaseName = Path.GetFileNameWithoutExtension(mediaPath) + "_" + Guid.NewGuid().ToString("N").Substring(0, 8);
+            //string srtBaseName = Path.GetFileNameWithoutExtension(mediaPath) + "_" + Guid.NewGuid().ToString("N").Substring(0, 8);
+            string srtBaseName = Guid.NewGuid().ToString("N");
             string tempSrtPath = Path.GetTempPath();
             string tempSrtFilePathBase = Path.Combine(tempSrtPath, srtBaseName);
             string outputSrtPath = tempSrtFilePathBase + ".srt"; //실제 whisper 생성 경로
@@ -57,7 +61,8 @@ namespace openMediaPlayer.Services
 
                 //오디오 추출
                 Debug.WriteLine("Extracting audio...");
-                tempAudioPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.wav");
+                //tempAudioPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.wav");
+                tempAudioPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.mp3");
                 bool isAudioExtracted = await _audioExtractor.ExtractAudioAsync(mediaPath, tempAudioPath);
                 if (!isAudioExtracted)
                 {
@@ -69,7 +74,11 @@ namespace openMediaPlayer.Services
 
                 //자막 생성
                 Debug.WriteLine("Generating subtitles using Whisper...");
-                bool isSubtitleGenerated = await _subtitleGenerator.GenerateSubtitlesAsync(tempAudioPath, outputSrtPath, "", modelName ?? _preferencesController.defaultWhisperModel);
+
+                string sttLang = lang ?? _settingsController.CurrentSettings.Subtitles.STT.DefaultSTTLanguage ?? "auto";
+                string sttModel = modelName ?? _settingsController.CurrentSettings.Subtitles.STT.DefaultSTTModel ?? "base.bin";
+
+                bool isSubtitleGenerated = await _subtitleGenerator.GenerateSubtitlesAsync(tempAudioPath, outputSrtPath, sttLang, modelName ?? _preferencesController.defaultWhisperModel);
                 if (!isSubtitleGenerated)
                 {
                     Debug.WriteLine($"Subtitle generation failed. Generated: {isSubtitleGenerated}, SRT Exists: {File.Exists(outputSrtPath)}");

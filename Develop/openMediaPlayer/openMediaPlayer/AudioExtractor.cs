@@ -24,7 +24,8 @@ namespace openMediaPlayer.Services
         {
             Directory.CreateDirectory(Path.GetDirectoryName(outAudioPath)!); //null 가능성 제거 위해서
 
-            string arguments = $"-i \"{videoPath}\" -y -vn -acodec pcm_s16le \"{outAudioPath}\"";
+            //string arguments = $"-i \"{videoPath}\" -y -vn -acodec pcm_s16le \"{outAudioPath}\"";
+            string arguments = $"-i \"{videoPath}\" -y -vn \"{outAudioPath}\"";
             ProcessResult result = await _processRunner.RunProcessAsync(_preferencesController.ffmpegPath, arguments);
 
             return result.Success && File.Exists(outAudioPath);

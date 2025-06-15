@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\Lecture\YU\3G\1\OSSD\Project\Develop\openMediaPlayer\openMediaPlayer\obj\Debug\net9.0-windows\
+I:\YU\1\Project\Develop\openMediaPlayer\openMediaPlayer\obj\Debug\net9.0-windows\
 openMediaPlayer
 none
 false
-TRACE;DEBUG;NET;NET9_0;NETCOREAPP
-G:\Lecture\YU\3G\1\OSSD\Project\Develop\openMediaPlayer\openMediaPlayer\App.xaml
-11407045341
+TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+I:\YU\1\Project\Develop\openMediaPlayer\openMediaPlayer\App.xaml
+2-2121854466
 844-505834734
-30-1555030414
-2022081250845
-MainWindow.xaml;
+43997742208
+209-1037187996
+MainWindow.xaml;SettingsWindow.xaml;
 
 False
 

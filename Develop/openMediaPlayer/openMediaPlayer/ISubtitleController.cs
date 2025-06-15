@@ -10,6 +10,6 @@ namespace openMediaPlayer.Services.Interfaces
     {
         event EventHandler? SubtitleGenerationStarted;
         event EventHandler<(bool success, string messageOrPath)>? SubtitleGenerationCompleted;
-        Task GenerateAndLoadSubtitlesAsync(string mediaPath, string? modelName = null);
+        Task GenerateAndLoadSubtitlesAsync(string mediaPath, string? modelName = null, string? lang = null);
     }
 }

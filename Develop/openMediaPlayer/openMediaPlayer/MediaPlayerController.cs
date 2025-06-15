@@ -48,6 +48,11 @@ namespace openMediaPlayer.Services
         public long Duration => MediaPlayer.Length;
         public float Position => MediaPlayer.Position;
         public string? CurrentMediaPath => _currentMediaPathInternal;
+        public int Volume
+        {
+            get => MediaPlayer.Volume;
+            set => MediaPlayer.Volume = value;
+        }
 
         public MediaPlayerController()
         {
@@ -85,7 +90,7 @@ namespace openMediaPlayer.Services
             };
         }
 
-        public bool OpenMedia(string filePath)
+        public bool OpenMedia(string filePath, long? startTime = null)
         {
             try
             {
@@ -93,7 +98,20 @@ namespace openMediaPlayer.Services
                 _currentMediaVLC?.Dispose();
 
                 var mediaURI = new Uri(filePath);
-                _currentMediaVLC = new Media(_libVLCEngine, mediaURI); //":no-video-title-show <- 비디오 제목 숨기기, 필요시 추가
+                //_currentMediaVLC = new Media(_libVLCEngine, mediaURI); //":no-video-title-show <- 비디오 제목 숨기기, 필요시 추가
+
+                //<추가1>
+                if (startTime.HasValue && startTime.Value > 0)
+                {
+                    // :start-time은 초 단위이므로 밀리초를 1000으로 나눔
+                    _currentMediaVLC = new Media(_libVLCEngine, mediaURI, $":start-time={startTime.Value / 1000}");
+                }
+                else
+                {
+                    _currentMediaVLC = new Media(_libVLCEngine, mediaURI);
+                }
+                //</추가1>
+
                 MediaPlayer.Media = _currentMediaVLC;
 
                 _currentMediaPathInternal = filePath;

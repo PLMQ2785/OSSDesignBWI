@@ -17,6 +17,7 @@ namespace openMediaPlayer.Services.Interfaces
         long Duration { get; }
         float Position { get; }
         string? CurrentMediaPath { get; }
+        int Volume { get; set; } // 추가
 
         event EventHandler<string>? MediaOpened; //미디어 파일 경로 or null 전달
         event EventHandler<PlaybackState>? PlaybackStateChanged; //재생 상태 전달
@@ -25,7 +26,7 @@ namespace openMediaPlayer.Services.Interfaces
         event EventHandler<string>? ErrorOccurred; //오류 메시지 전달
         event EventHandler? EndReached; //재생 종료시
 
-        bool OpenMedia(string filePath);
+        bool OpenMedia(string filePath, long? startTime = null);
         void Play();
         void Pause();
         void Stop();

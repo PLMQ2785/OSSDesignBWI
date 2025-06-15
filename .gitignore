@@ -1,4 +1,5 @@
 Develop/openMediaPlayer/Lib/
 Develop/openMediaPlayer/openMediaPlayer/ffmpeg/
 Develop/openMediaPlayer/openMediaPlayer/whisper/
+Develop/openMediaPlayer/openMediaPlayer/llm_models/
 Develop/openMediaPlayer/openMediaPlayer/bin/*

@@ -13,6 +13,7 @@ namespace openMediaPlayer.Services.Interfaces
         string whisperModelPath { get; }
         string defaultWhisperModel { get; }
         string whisperExecutablePath { get; }
+        string llmModelPath { get; }
         bool CheckDependencies(out string errorMSG);
     }
 }

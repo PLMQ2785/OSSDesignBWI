@@ -17,8 +17,11 @@ namespace openMediaPlayer.Services
         public string ffmpegPath => Path.Combine(baseDir, "ffmpeg", "bin", "ffmpeg.exe");
         public string whisperPath => Path.Combine(baseDir, "whisper", "whisper-cli.exe");
         public string whisperModelPath => Path.Combine(baseDir, "whisper", "models");
-        public string defaultWhisperModel => "base.bin";
+        public string defaultWhisperModel => "medium.bin";
         public string whisperExecutablePath => Path.GetDirectoryName(whisperPath) ?? baseDir; //is null? use default
+
+        //llm 모델 경로
+        public string llmModelPath => Path.Combine(baseDir, "llm_models", "model.gguf");
 
         public bool CheckDependencies(out string errorMSG)
         {
@@ -38,6 +41,12 @@ namespace openMediaPlayer.Services
             if (!Directory.Exists(whisperModelPath) || !File.Exists(defaultModelFullPath))
             {
                 errorMSG += "whisper model not found!\n";
+                return false;
+            }
+
+            if (!File.Exists(llmModelPath))
+            {
+                errorMSG += "LLM model not found!\n";
                 return false;
             }
             return true;

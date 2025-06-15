@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:openMediaPlayer"
         xmlns:vlc="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
         mc:Ignorable="d"
-        Title="Open Media Player" Height="720" Width="1280">
+        Title="Open Media Player" Height="720" Width="1280"
+        Closing="Window_Closing"
+        Topmost="{Binding Settings.Playback.AlwaysOnTop, Mode=OneWay}">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -20,6 +22,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Margin="5">
@@ -68,6 +71,26 @@
                 <Button Content="Prev" Command="{Binding PreviousTrackCommand}" Margin="5" />
                 <Button Content="Next" Command="{Binding NextTrackCommand}" Margin="5" />
             </StackPanel>
+
+            <GroupBox Grid.Row="3" Header="Live Support" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                        <TextBlock Text="{Binding LlmHistory}" TextWrapping="Wrap" Margin="5"/>
+                    </ScrollViewer>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Text="{Binding LlmInputText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" IsEnabled="{Binding IsLlmInputEnabled}"/>
+                        <Button Grid.Column="1" Content="Send" Command="{Binding SubmitLlmCommand}" Margin="5,0,0,0" IsEnabled="{Binding IsLlmInputEnabled}"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
         </Grid>
 
 
@@ -100,12 +123,13 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="CurrentTimeLabel" Grid.Column="0" Text="{Binding CurrentTimeText}" VerticalAlignment="Center" Margin="0,0,5,0"/>
                 <Slider x:Name="PositionSlider"
                         Grid.Column="1"
-                        Value="{Binding PositionSlider, Mode=TwoWay}"
+                        Value="{Binding SliderPosition, Mode=TwoWay}"
                         Minimum="0" 
                         Maximum="{Binding SliderMaxValue}" 
                         SmallChange="0.01" 
@@ -115,6 +139,8 @@
                         PreviewMouseLeftButtonUp="PositionSlider_PreviewMouseLeftButtonUp"
                         IsEnabled="{Binding IsMediaLoaded}"/>
                 <TextBlock x:Name="TotalDurationLabel" Grid.Column="2" Text="{Binding TotalDurationText}" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                
+                
             </Grid>
 
 
@@ -136,7 +162,35 @@
 
                 </StackPanel>
 
-                <Button Grid.Column="2" x:Name="GenerateSubtitlesButton" Content="자막 생성" Padding="10,5" VerticalAlignment="Center" IsEnabled="{Binding CanGenerateSubtitles}" Command="{Binding GenerateSubtitlesCommand}"/>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <Button x:Name="MuteButton" Command="{Binding MuteCommand}" Width="30" Height="30" Padding="5" VerticalAlignment="Center" Margin="0,0,5,0">
+                        <TextBlock>
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="🔊"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMuted}" Value="True">
+                                            <Setter Property="Text" Value="🔇"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Button>
+                    <Slider x:Name="VolumeSlider" Width="100" VerticalAlignment="Center"
+                            Minimum="0" Maximum="100"
+                            Value="{Binding Volume, Mode=TwoWay}"
+                            IsEnabled="{Binding IsMediaLoaded}" Margin="0,0,10,0"/>
+
+                    <Button x:Name="GenerateSubtitlesButton" Content="자막 생성" Padding="10,5" VerticalAlignment="Center" IsEnabled="{Binding CanGenerateSubtitles}" Command="{Binding GenerateSubtitlesCommand}"/>
+                    <Button x:Name="SettingsButton"
+                        Content="설정"
+                        Padding="10,5" VerticalAlignment="Center"
+                        Margin="5,0,0,0"
+                        Command="{Binding OpenSettingsWindowCommand}"/>
+                </StackPanel>
+
 
             </Grid>
 

@@ -39,7 +39,7 @@ namespace openMediaPlayer.Services
 
             if (string.IsNullOrEmpty(lang))
             {
-                arguments = $"-m \"{modelPath}\" -f \"{audioFilePath}\" -l auto -osrt -of \"{outputDirectoryForWhisper}\"";
+                arguments = $"-m \"{modelPath}\" -f \"{audioFilePath}\" -l ko -osrt -of \"{outputDirectoryForWhisper}\"";
             }
 
             ProcessResult result = await _processRunner.RunProcessAsync(_preferencesController.whisperPath, arguments, _preferencesController.whisperExecutablePath); //작업 경로 설정

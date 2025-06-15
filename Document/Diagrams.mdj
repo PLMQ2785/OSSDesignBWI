@@ -29449,7 +29449,7 @@
 											"top": 644,
 											"width": 231,
 											"height": 13,
-											"text": "IPlayerActionRegister"
+											"text": "IPlayerActionRegistry"
 										},
 										{
 											"_type": "LabelView",
@@ -35422,7 +35422,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TGIrzoVG+g="
 									},
-									"name": "Process Natural Language Prompt"
+									"name": "Process Natural Language Prompt",
+									"type": ""
 								}
 							]
 						},
@@ -35432,7 +35433,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGW5Xch3+PbyUg="
 							},
-							"name": "IPlayerActionRegister",
+							"name": "IPlayerActionRegistry",
 							"ownedElements": [
 								{
 									"_type": "UMLDependency",
@@ -35484,7 +35485,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TJCEzpMF6Q="
 									},
-									"name": "Executes Mapped Player Action"
+									"name": "Executes Mapped Player Action",
+									"type": ""
 								}
 							]
 						}
@@ -35528,7 +35530,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TM5jDqJGkI="
 									},
-									"name": "Manages Playlist"
+									"name": "Manages Playlist",
+									"type": ""
 								}
 							]
 						},
@@ -35576,7 +35579,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TM+8DqyT4E="
 									},
-									"name": "Play Media"
+									"name": "Play Media",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -35584,7 +35588,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TM+8DqyT4E="
 									},
-									"name": "Manage Playback State"
+									"name": "Manage Playback State",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -35592,7 +35597,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TM+8DqyT4E="
 									},
-									"name": "Displays Subtitle"
+									"name": "Displays Subtitle",
+									"type": ""
 								}
 							]
 						}
@@ -35664,7 +35670,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TS/WDsFLSw="
 									},
-									"name": "Manage Subtitle"
+									"name": "Manage Subtitle",
+									"type": ""
 								}
 							],
 							"operations": [
@@ -35703,7 +35710,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TcYfDtRB9U="
 									},
-									"name": "Subtitle Generation using Whisper"
+									"name": "Subtitle Generation using Whisper",
+									"type": ""
 								}
 							]
 						},
@@ -35721,7 +35729,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TeQ5TuF0jA="
 									},
-									"name": "Extract Audio"
+									"name": "Extract Audio",
+									"type": ""
 								}
 							]
 						}
@@ -35793,7 +35802,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TgaVDu+oRE="
 									},
-									"name": "Provides Path for External Tools"
+									"name": "Provides Path for External Tools",
+									"type": ""
 								}
 							],
 							"operations": [
@@ -35821,7 +35831,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6TnjCjwLrTg="
 									},
-									"name": "Load and Save Setting"
+									"name": "Load and Save Setting",
+									"type": ""
 								}
 							]
 						}
@@ -36014,7 +36025,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6Tvp4TzJnSc="
 									},
-									"name": "General"
+									"name": "General",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -36022,7 +36034,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6Tvp4TzJnSc="
 									},
-									"name": "Playback"
+									"name": "Playback",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -36030,7 +36043,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6Tvp4TzJnSc="
 									},
-									"name": "Subtitle"
+									"name": "Subtitle",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -36038,7 +36052,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6Tvp4TzJnSc="
 									},
-									"name": "LiveSupport"
+									"name": "LiveSupport",
+									"type": ""
 								}
 							]
 						},
@@ -46672,7 +46687,7 @@
 									"font": "Arial;13;0",
 									"left": 5552,
 									"top": 2440,
-									"width": 55.49365234375,
+									"width": 56.9599609375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGW6ZqOGUO5vWg="
@@ -57597,7 +57612,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6XmQVz+o2Aw="
 									},
-									"name": "{event} PlaylistUpdated"
+									"name": "{event} PlaylistUpdated",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -57605,7 +57621,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6XmQVz+o2Aw="
 									},
-									"name": "{event} CurrentTrackChanged"
+									"name": "{event} CurrentTrackChanged",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -57968,7 +57985,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6ZWjOEIOEuo="
 									},
-									"name": "{event} LlmResponseReceived"
+									"name": "{event} LlmResponseReceived",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -57976,7 +57994,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6ZWjOEIOEuo="
 									},
-									"name": "{event} ActionRequested"
+									"name": "{event} ActionRequested",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -59381,7 +59400,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6Xf4fz8p3bI="
 							},
-							"name": "{event} SubtitleGenerationStarted"
+							"name": "{event} SubtitleGenerationStarted",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -59389,7 +59409,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6Xf4fz8p3bI="
 							},
-							"name": "{event} SubtitleGenerationCompleted"
+							"name": "{event} SubtitleGenerationCompleted",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -59684,7 +59705,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6YZvOkEF7wA="
 							},
-							"name": "{event} MediaOpened"
+							"name": "{event} MediaOpened",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -59692,7 +59714,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6YZvOkEF7wA="
 							},
-							"name": "{event} PlaybackStateChanged"
+							"name": "{event} PlaybackStateChanged",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -59700,7 +59723,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6YZvOkEF7wA="
 							},
-							"name": "{event} TimeChanged"
+							"name": "{event} TimeChanged",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -59708,7 +59732,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6YZvOkEF7wA="
 							},
-							"name": "{event} LengthChanged"
+							"name": "{event} LengthChanged",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -59716,7 +59741,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6YZvOkEF7wA="
 							},
-							"name": "{event} ErrorOccurred"
+							"name": "{event} ErrorOccurred",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -60262,7 +60288,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6ZuAS0Q2Vwc="
 							},
-							"name": "{event} SettingsChanged"
+							"name": "{event} SettingsChanged",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -60543,7 +60570,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6bpveEvpG+U="
 									},
-									"name": "Stopped"
+									"name": "Stopped",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -60551,7 +60579,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6bpveEvpG+U="
 									},
-									"name": "Opening"
+									"name": "Opening",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -60559,7 +60588,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6bpveEvpG+U="
 									},
-									"name": "Playing"
+									"name": "Playing",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -60567,7 +60597,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6bpveEvpG+U="
 									},
-									"name": "Paused"
+									"name": "Paused",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -60575,7 +60606,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGW6bpveEvpG+U="
 									},
-									"name": "Error"
+									"name": "Error",
+									"type": ""
 								}
 							]
 						},
@@ -61168,7 +61200,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6b8kiU3haHs="
 							},
-							"name": "Bottom"
+							"name": "Bottom",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -61176,7 +61209,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6b8kiU3haHs="
 							},
-							"name": "Top"
+							"name": "Top",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -61184,7 +61218,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6b8kiU3haHs="
 							},
-							"name": "MiddleLeft"
+							"name": "MiddleLeft",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -61192,7 +61227,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGW6b8kiU3haHs="
 							},
-							"name": "MiddleRight"
+							"name": "MiddleRight",
+							"type": ""
 						}
 					]
 				},

@@ -1,17 +1,18 @@
-﻿using openMediaPlayer.Models;
+﻿using openMediaPlayer.Models; // AppSettings 사용을 위해 추가
 using openMediaPlayer.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace openMediaPlayer.Services
 {
     public class PlaylistController : IPlaylistController
     {
         private readonly IMediaPlayerController _mediaPlayerController;
+        private readonly ISettingsController _settingsController;
+        private readonly ISubtitleController _subtitleController; //추가
         private readonly ObservableCollection<MediaItem> _playlist = new ObservableCollection<MediaItem>();
         private int _currentTrackIndex = -1;
 
@@ -23,23 +24,39 @@ namespace openMediaPlayer.Services
                                           ? _playlist[_currentTrackIndex]
                                           : null;
 
-        private bool _isRepeatEnabled = false;
-        public bool IsRepeatEnabled
+        public bool IsRepeatEnabled { get; set; }
+
+        public PlaylistController(IMediaPlayerController mediaPlayerController, ISettingsController settingsController, ISubtitleController subtitleController)
         {
-            get => _isRepeatEnabled;
-            set => _isRepeatEnabled = value;
+            _mediaPlayerController = mediaPlayerController ?? throw new ArgumentNullException(nameof(mediaPlayerController));
+            _settingsController = settingsController ?? throw new ArgumentNullException(nameof(settingsController)); // settingsController 할당
+            _subtitleController = subtitleController ?? throw new ArgumentNullException(nameof(subtitleController)); // 추가
+
+            // 1. 설정 변경 이벤트를 구독
+            _settingsController.SettingsChanged += OnSettingsChanged;
+
+            // 2. 컨트롤러 생성 시 초기 설정을 반영
+            ApplySettings(_settingsController.CurrentSettings);
+
+            _mediaPlayerController.EndReached += OnMediaPlayerEndReached;
+            _playlist.CollectionChanged += (s, e) => PlaylistUpdated?.Invoke(this, EventArgs.Empty);
+            _subtitleController = subtitleController;
         }
 
-        public PlaylistController(IMediaPlayerController mediaPlayerController)
+        // 설정이 변경될 때마다 호출
+        private void OnSettingsChanged(object? sender, AppSettings newSettings)
         {
-            _mediaPlayerController = mediaPlayerController;
-            _mediaPlayerController.EndReached += OnMediaPlayerEndReached; // 재생 종료 이벤트 구독
-            _playlist.CollectionChanged += (s, e) => PlaylistUpdated?.Invoke(this, EventArgs.Empty); // 컬렉션 변경 시 이벤트 발생
+            ApplySettings(newSettings);
+        }
+
+        // 설정을 적용
+        private void ApplySettings(AppSettings settings)
+        {
+            IsRepeatEnabled = settings.Playback.RepeatPlaylist;
         }
 
         private void OnMediaPlayerEndReached(object? sender, EventArgs e)
         {
-            // 재생이 끝나면 자동으로 다음 트랙 재생
             NextTrack();
         }
 
@@ -47,13 +64,16 @@ namespace openMediaPlayer.Services
         {
             try
             {
-                var newItem = new MediaItem(filePath);
-                if (!_playlist.Contains(newItem))
+                if (File.Exists(filePath))
                 {
-                    _playlist.Add(newItem);
+                    var newItem = new MediaItem(filePath);
+                    if (!_playlist.Contains(newItem))
+                    {
+                        _playlist.Add(newItem);
+                    }
                 }
             }
-            catch (ArgumentException) { /* 파일 경로 오류 처리 */ }
+            catch (ArgumentException) { /* 파일 경로 오류 처리, 안하면 뻗어서 추가 */ }
         }
 
         public void AddMultipleMedia(IEnumerable<string> filePaths)
@@ -69,8 +89,10 @@ namespace openMediaPlayer.Services
             int index = _playlist.IndexOf(item);
             if (index != -1)
             {
+                bool wasCurrent = index == _currentTrackIndex;
                 _playlist.RemoveAt(index);
-                if (index == _currentTrackIndex)
+
+                if (wasCurrent)
                 {
                     _mediaPlayerController.Stop();
                     _currentTrackIndex = -1;
@@ -97,14 +119,38 @@ namespace openMediaPlayer.Services
             if (index != -1)
             {
                 _currentTrackIndex = index;
-                if (_mediaPlayerController.OpenMedia(item.FilePath))
+
+                //<추가1>
+                long? startTime = null;
+                if ((_settingsController.CurrentSettings.General.RememberLastPosition &&
+                     _settingsController.CurrentSettings.PlaybackPositions.TryGetValue(item.FilePath, out long savedTime)))
+                {
+                    startTime = savedTime;
+                }
+                //</추가1>
+
+
+                if (_mediaPlayerController.OpenMedia(item.FilePath, startTime))
                 {
                     _mediaPlayerController.Play();
                     CurrentTrackChanged?.Invoke(this, item);
+
+                    //열때 자막생성 추가
+                    //설정값 true인지 보고
+                    if (_settingsController.CurrentSettings.Subtitles.STT.AutoGenerateOnOpen)
+                    {
+                        // STT 설정 가져오고.
+                        string model = _settingsController.CurrentSettings.Subtitles.STT.DefaultSTTModel;
+                        string lang = _settingsController.CurrentSettings.Subtitles.STT.DefaultSTTLanguage;
+
+                        // 자막 생성을 백그라운드에서 시작
+                        _ = _subtitleController.GenerateAndLoadSubtitlesAsync(item.FilePath, model); //Fire and Forget
+                    }
+
+
                 }
                 else
                 {
-                    // 파일 열기 실패 시 다음 트랙 시도 (또는 오류 처리)
                     NextTrack();
                 }
             }
@@ -120,13 +166,12 @@ namespace openMediaPlayer.Services
             {
                 if (IsRepeatEnabled)
                 {
-                    nextIndex = 0; // 반복 활성화 시 처음으로
+                    nextIndex = 0;
                 }
                 else
                 {
-                    // 반복 비활성화 시 재생 중지
                     _mediaPlayerController.Stop();
-                    _currentTrackIndex = -1; // 현재 트랙 없음으로 표시
+                    _currentTrackIndex = -1;
                     CurrentTrackChanged?.Invoke(this, null);
                     return;
                 }
@@ -145,11 +190,11 @@ namespace openMediaPlayer.Services
             {
                 if (IsRepeatEnabled)
                 {
-                    prevIndex = _playlist.Count - 1; // 반복 활성화 시 마지막으로
+                    prevIndex = _playlist.Count - 1;
                 }
                 else
                 {
-                    prevIndex = 0; // 반복 비활성화 시 처음으로 (또는 정지)
+                    prevIndex = 0;
                 }
             }
 

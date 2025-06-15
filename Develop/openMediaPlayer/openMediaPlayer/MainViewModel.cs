@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+//된다 눈물난다 ㅠㅠㅠㅠㅠ
 namespace openMediaPlayer.ViewModels
 {
     public class MainViewModel : ViewModelBase
@@ -22,11 +23,47 @@ namespace openMediaPlayer.ViewModels
         private readonly IDispatcherController _dispatcherController;
         private readonly IPreferencesController _preferencesController;
         private readonly IPlaylistController _playlistController;
+        private readonly ISettingsController _settingsController; //추가
+        private readonly ILiveSupportController _liveSupportController; // 추가
 
         private string? _currentMediaFilePathVM;
         private bool _IsUserDraggingSlider = false;
 
         public MediaPlayer VLCPlayerEngine => _mediaPlayerController.MediaPlayer;
+        public AppSettings Settings => _settingsController.CurrentSettings;
+
+        private bool _isLlmBusy;
+        public bool IsLlmBusy
+        {
+            get => _isLlmBusy;
+            private set
+            {
+                if (SetProperty(ref _isLlmBusy, value))
+                {
+                    OnPropertyChanged(nameof(IsLlmInputEnabled));
+                    SubmitLlmCommand.RaiseCanExecuteChanged();
+                }
+            }
+        }
+
+        public bool IsLlmInputEnabled => !IsLlmBusy;
+
+        // <Live Support 관련 속성 및 명령 추가>
+        private string _llmInputText = "";
+        public string LlmInputText
+        {
+            get => _llmInputText;
+            set => SetProperty(ref _llmInputText, value);
+        }
+
+        private string _llmHistory = "";
+        public string LlmHistory
+        {
+            get => _llmHistory;
+            set => SetProperty(ref _llmHistory, value);
+        }
+        public RelayCommandController SubmitLlmCommand { get; }
+        // </Live Support 관련 속성 및 명령 추가>
 
         private string _CurrentTimeText = "00:00:00";
         public string CurrentTimeText
@@ -140,6 +177,24 @@ namespace openMediaPlayer.ViewModels
             set => SetProperty(ref _currentPlaylistItem, value);
         }
 
+        private int _lastVolumeBeforeMute = 100; //초기 볼륨..
+        public int Volume
+        {
+            get => _mediaPlayerController.Volume;
+            set
+            {
+                if (_mediaPlayerController.Volume != value)
+                {
+                    _mediaPlayerController.Volume = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(IsMuted));
+                }
+            }
+        }
+
+        public bool IsMuted => Volume == 0;
+
+
 
         public RelayCommandController OpenCommand { get; }
         public RelayCommandController PlayCommand { get; }
@@ -154,11 +209,16 @@ namespace openMediaPlayer.ViewModels
         public RelayCommandController ClearPlaylistCommand { get; }
         public RelayCommandController NextTrackCommand { get; }
         public RelayCommandController PreviousTrackCommand { get; }
+        public RelayCommandController OpenSettingsWindowCommand { get; } //추가
+
+        public RelayCommandController MuteCommand { get; }
+        public RelayCommandController VolumeUpCommand { get; } // 볼륨 증가
+        public RelayCommandController VolumeDownCommand { get; } // 볼륨 감소
 
 
-        public MainViewModel(IMediaPlayerController mediaPlayerController, IMediaFileController mediaFileController,
-                             ISubtitleController subtitleController, ITimeFormatter timeFormatter, IDispatcherController dispatcherController,
-                             IPreferencesController preferencesController, IPlaylistController playlistController)
+        public MainViewModel(IMediaPlayerController mediaPlayerController, IMediaFileController mediaFileController, ISubtitleController subtitleController,
+                                ITimeFormatter timeFormatter, IDispatcherController dispatcherController, IPreferencesController preferencesController,
+                                IPlaylistController playlistController, ISettingsController settingsController, ILiveSupportController liveSupportController)
         {
             _mediaPlayerController = mediaPlayerController ?? throw new ArgumentNullException(nameof(mediaPlayerController));
             _mediaFileController = mediaFileController ?? throw new ArgumentNullException(nameof(mediaFileController));
@@ -167,14 +227,34 @@ namespace openMediaPlayer.ViewModels
             _dispatcherController = dispatcherController ?? throw new ArgumentNullException(nameof(dispatcherController));
             _preferencesController = preferencesController ?? throw new ArgumentNullException(nameof(preferencesController));
             _playlistController = playlistController ?? throw new ArgumentNullException(nameof(playlistController));
-
+            _settingsController = settingsController ?? throw new ArgumentNullException(nameof(settingsController)); //추가
+            _liveSupportController = liveSupportController ?? throw new ArgumentNullException(nameof(liveSupportController)); //추가
 
             OpenCommand = new RelayCommandController(async param => await OpenMediaAsync());
             PlayCommand = new RelayCommandController(param => _mediaPlayerController.Play(), param => IsMediaLoaded && !_mediaPlayerController.IsPlaying);
             PauseCommand = new RelayCommandController(param => _mediaPlayerController.Pause(), param => IsMediaLoaded && _mediaPlayerController.IsPlaying);
             StopCommand = new RelayCommandController(param => _mediaPlayerController.Stop(), param => IsMediaLoaded);
             GenerateSubtitlesCommand = new RelayCommandController(async param => await GenerateSubtitlesAsync(), param => CanGenerateSubtitles);
+            // 설정 창 열기 명령 초기화
+            OpenSettingsWindowCommand = new RelayCommandController(param => OpenSettingsWindow());
 
+            MuteCommand = new RelayCommandController(param => ToggleMute());
+            VolumeUpCommand = new RelayCommandController(param => Volume = Math.Min(Volume + 5, 100));
+            VolumeDownCommand = new RelayCommandController(param => Volume = Math.Max(Volume - 5, 0));
+
+            //볼륨 설정 외부에서 바뀔일이 있을까 싶긴 한데 일단 혹시몰라서..
+            _mediaPlayerController.MediaPlayer.VolumeChanged += (s, e) => OnPropertyChanged(nameof(Volume));
+
+            // 설정 변경 이벤트 구독
+            _settingsController.SettingsChanged += OnSettingsChanged;
+
+            // PlaylistController에 설정 반영
+            _playlistController.IsRepeatEnabled = _settingsController.CurrentSettings.Playback.RepeatPlaylist;
+
+            SubmitLlmCommand = new RelayCommandController(
+                                                            async param => await ExecuteLlmCommand(),
+                                                            param => !string.IsNullOrWhiteSpace(LlmInputText) && _liveSupportController.IsInitialized && !IsLlmBusy
+                                                         );
 
             AddFilesToPlaylistCommand = new RelayCommandController(async param => await AddFilesToPlaylistAsync());
             PlaySelectedCommand = new RelayCommandController(param => PlaySelectedItem(), param => SelectedPlaylistItem != null);
@@ -182,6 +262,7 @@ namespace openMediaPlayer.ViewModels
             ClearPlaylistCommand = new RelayCommandController(param => _playlistController.ClearPlaylist(), param => PlaylistItems.Any());
             NextTrackCommand = new RelayCommandController(param => _playlistController.NextTrack(), param => PlaylistItems.Any());
             PreviousTrackCommand = new RelayCommandController(param => _playlistController.PreviousTrack(), param => PlaylistItems.Any());
+
 
             SubscribeToServiceEvents();
 
@@ -489,5 +570,59 @@ namespace openMediaPlayer.ViewModels
             }
         }
 
+        // 설정 변경 시 호출
+        private void OnSettingsChanged(object? sender, AppSettings newSettings)
+        {
+            _dispatcherController.Invoke(() =>
+            {
+                _playlistController.IsRepeatEnabled = newSettings.Playback.RepeatPlaylist;
+                // 이 부분은 MainViewModel이 Window 자체를 제어하기 어려우므로 이벤트를 통해 MainWindow.xaml.cs에서 처리하는 것이 좋음
+            });
+        }
+
+        // 설정 창 열기 요청 이벤트
+        public event EventHandler? RequestOpenSettingsWindow;
+
+        private void OpenSettingsWindow()
+        {
+            RequestOpenSettingsWindow?.Invoke(this, EventArgs.Empty);
+        }
+
+        private async Task ExecuteLlmCommand()
+        {
+            if (IsLlmBusy) return;
+
+            string userInput = LlmInputText;
+            LlmHistory += $"> User: {userInput}\n";
+            LlmInputText = ""; // 입력창 비우기
+
+            try
+            {
+                IsLlmBusy = true;
+                string result = await _liveSupportController.ProcessUserInputAsync(userInput);
+                LlmHistory += $"> Assistant: {result}\n";
+            }
+            catch (Exception ex)
+            {
+                LlmHistory += $"> System Error: {ex.Message}\n";
+            }
+            finally
+            {
+                IsLlmBusy = false;
+            }
+        }
+
+        private void ToggleMute()
+        {
+            if (IsMuted)
+            {
+                Volume = _lastVolumeBeforeMute;
+            }
+            else
+            {
+                _lastVolumeBeforeMute = Volume;
+                Volume = 0;
+            }
+        }
     }
 }
