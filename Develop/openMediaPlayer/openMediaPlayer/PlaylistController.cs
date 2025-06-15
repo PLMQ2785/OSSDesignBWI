@@ -13,7 +13,9 @@ namespace openMediaPlayer.Services
         private readonly IMediaPlayerController _mediaPlayerController;
         private readonly ISettingsController _settingsController;
         private readonly ISubtitleController _subtitleController; //추가
+        private readonly IDispatcherController _dispatcherController; // 추가
         private readonly ObservableCollection<MediaItem> _playlist = new ObservableCollection<MediaItem>();
+
         private int _currentTrackIndex = -1;
 
         public event EventHandler? PlaylistUpdated;
@@ -26,11 +28,12 @@ namespace openMediaPlayer.Services
 
         public bool IsRepeatEnabled { get; set; }
 
-        public PlaylistController(IMediaPlayerController mediaPlayerController, ISettingsController settingsController, ISubtitleController subtitleController)
+        public PlaylistController(IMediaPlayerController mediaPlayerController, ISettingsController settingsController, ISubtitleController subtitleController, IDispatcherController dispatcherController)
         {
             _mediaPlayerController = mediaPlayerController ?? throw new ArgumentNullException(nameof(mediaPlayerController));
             _settingsController = settingsController ?? throw new ArgumentNullException(nameof(settingsController)); // settingsController 할당
             _subtitleController = subtitleController ?? throw new ArgumentNullException(nameof(subtitleController)); // 추가
+            _dispatcherController = dispatcherController ?? throw new ArgumentNullException(nameof(dispatcherController));
 
             // 1. 설정 변경 이벤트를 구독
             _settingsController.SettingsChanged += OnSettingsChanged;
@@ -57,7 +60,11 @@ namespace openMediaPlayer.Services
 
         private void OnMediaPlayerEndReached(object? sender, EventArgs e)
         {
-            NextTrack();
+            //NextTrack();
+            _dispatcherController.InvokeAsync(() =>
+            {
+                NextTrack();
+            });
         }
 
         public void AddMedia(string filePath)
@@ -115,6 +122,13 @@ namespace openMediaPlayer.Services
 
         public void PlayTrack(MediaItem item)
         {
+            _mediaPlayerController.Pause();
+            System.Threading.Thread.Sleep(100); // Stop 처리 대기
+            ////if (_mediaPlayerController.IsPlaying)
+            ////{
+            ////}
+
+
             int index = _playlist.IndexOf(item);
             if (index != -1)
             {
@@ -174,6 +188,8 @@ namespace openMediaPlayer.Services
         {
             if (_playlist.Count == 0) return;
 
+            _mediaPlayerController.Stop();
+
             int nextIndex = _currentTrackIndex + 1;
 
             if (nextIndex >= _playlist.Count)
@@ -197,6 +213,8 @@ namespace openMediaPlayer.Services
         public void PreviousTrack()
         {
             if (_playlist.Count == 0) return;
+
+            _mediaPlayerController.Stop();
 
             int prevIndex = _currentTrackIndex - 1;
 

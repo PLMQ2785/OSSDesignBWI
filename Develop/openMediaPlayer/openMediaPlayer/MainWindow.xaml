@@ -139,8 +139,8 @@
                         PreviewMouseLeftButtonUp="PositionSlider_PreviewMouseLeftButtonUp"
                         IsEnabled="{Binding IsMediaLoaded}"/>
                 <TextBlock x:Name="TotalDurationLabel" Grid.Column="2" Text="{Binding TotalDurationText}" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                
-                
+
+
             </Grid>
 
 
@@ -202,10 +202,5 @@
 
         </Grid>
     </Grid>
-
-    <Window.InputBindings>
-        <KeyBinding Key="Left" Command="{Binding SeekBackwardCommand}" />
-        <KeyBinding Key="Right" Command="{Binding SeekForwardCommand}" />
-    </Window.InputBindings>
 
 </Window>

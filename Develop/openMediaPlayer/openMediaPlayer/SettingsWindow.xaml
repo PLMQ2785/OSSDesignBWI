@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:openMediaPlayer"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="1280" Width="720">
+        Title="SettingsWindow" Height="700" Width="700">
     <Grid>
 
         <Grid.RowDefinitions>

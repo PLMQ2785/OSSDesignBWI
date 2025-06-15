@@ -101,6 +101,7 @@ namespace openMediaPlayer.Services
             try
             {
                 MediaPlayer.Stop();
+                MediaPlayer.Media = null; // 현재 미디어를 해제
                 _currentMediaVLC?.Dispose();
 
                 var mediaURI = new Uri(filePath);
@@ -157,13 +158,18 @@ namespace openMediaPlayer.Services
         public void Stop()
         {
             MediaPlayer.Stop();
+            System.Threading.Thread.Sleep(100); // 잠시 대기 -> 미디어 플레이어가 정지 상태로 전환될 시간을 줌
         }
 
         public void Seek(float position)
         {
-            if (MediaPlayer.IsSeekable && MediaPlayer.Media != null)
+            if (MediaPlayer.IsSeekable && MediaPlayer.Length > 0)
             {
-                MediaPlayer.Position = Math.Clamp(position, 0f, 1f);
+                
+                long newTime = (long)(MediaPlayer.Length * Math.Clamp(position, 0f, 1f));
+
+                
+                MediaPlayer.Time = newTime;
             }
         }
 
@@ -204,7 +210,11 @@ namespace openMediaPlayer.Services
         public void SeekRelative(int seconds)
         {
             // 탐색이 불가능한 미디어이거나, 미디어가 없으면 아무것도 하지 않음
-            if (!MediaPlayer.IsSeekable || MediaPlayer.Media == null) return;
+            if (!MediaPlayer.IsSeekable || MediaPlayer.Length <= 0)
+            {
+                System.Diagnostics.Debug.WriteLine("Seek failed: Media is not seekable or duration is not yet known.");
+                return;
+            }
 
             // 현재 시간(밀리초)에 원하는 시간(초 * 1000)을 더함
             long newTime = MediaPlayer.Time + (seconds * 1000);
