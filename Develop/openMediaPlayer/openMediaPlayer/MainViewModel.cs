@@ -533,6 +533,11 @@ namespace openMediaPlayer.ViewModels
 
         private async Task OpenMediaAsync()
         {
+            if (_mediaPlayerController.IsPlaying)
+            {
+                _mediaPlayerController.Stop();
+            }
+
             var filePath = _mediaFileController.SelectMediaFile();
             if (!string.IsNullOrEmpty(filePath))
             {
